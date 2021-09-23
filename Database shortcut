@@ -1,0 +1,15 @@
+//Database connection için global bir değişken:
+
+const connection = mysql.createConnection('db_config_file'.method)
+connection.connect((error) => {
+      if(!error) { //execute correct command}
+      else { //execute error command})
+
+//Bu statement'ın ardından her metot içinde tekrar bağlantı kurmaya gerek kalmaz.
+
+//definition
+const con = ( function1(){}, function2(){}) => { mysql.createConnection('db_config_file'.method).connect((error) => {
+      if(!error) { function1(){} }
+      else { function2(){} })
+//execution
+con( correctFunction(), errorFunction() )
